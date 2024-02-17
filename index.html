@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Ticket</title>
+    <title>BookMe</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
       rel="stylesheet"
@@ -13,6 +13,74 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <header>
+      <!-- Section Navbar -->
+      <nav>
+        <!-- Container Div -->
+        <div class="md:w-10/12 mx-auto w-full px-2 md:px-4">
+          <!-- Navbar -->
+          <div class="navbar bg-transparent px-0 py-0 text-raleway md:my-7">
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="btn btn-ghost lg:hidden px-3 pl-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li><a>Home</a></li>
+                  <li><a>Destination</a></li>
+                  <li><a>About Us</a></li>
+                  <li><a>Search</a></li>
+                </ul>
+              </div>
+              <a
+                class="lg:text-4xl md:text-3xl text-2xl font-extrabold cursor-pointer text-orange-500"
+                >bookme</a
+              >
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul
+                class="menu menu-horizontal px-1 space-x-3 text-lg font-medium text-[#030712B2]"
+              >
+                <li>
+                  <a class="hover:bg-orange-200">Home</a>
+                </li>
+                <li><a class="hover:bg-orange-200">Destination</a></li>
+                <li><a class="hover:bg-orange-200">About Us</a></li>
+                <li><a class="hover:bg-orange-200">Search</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end">
+              <button
+                class="btn text-xl font-bold space-x-1 flex items-center text-orange-500 bg-orange-50 border border-orange-200 hover:bg-orange-200"
+              >
+                <span>Bus</span>
+                <img src="media/icons/icon-bus.svg" alt="icon" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
     <script src="js/script.js"></script>
   </body>
 </html>
