@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BookMe</title>
+    <title>Book Me</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
       rel="stylesheet"
@@ -19,7 +19,9 @@
         <!-- Container Div -->
         <div class="md:w-10/12 mx-auto w-full px-2 md:px-4">
           <!-- Navbar -->
-          <div class="navbar bg-transparent px-0 py-0 text-raleway md:my-7">
+          <div
+            class="navbar bg-transparent px-0 py-0 text-raleway my-2 md:my-5"
+          >
             <div class="navbar-start">
               <div class="dropdown">
                 <div
@@ -74,12 +76,106 @@
                 class="btn text-xl font-bold space-x-1 flex items-center text-orange-500 bg-orange-50 border border-orange-200 hover:bg-orange-200"
               >
                 <span>Bus</span>
-                <img src="media/icons/icon-bus.svg" alt="icon" />
+                <img src="media/icons/bus.svg" alt="icon" />
               </button>
             </div>
           </div>
         </div>
       </nav>
+      <!-- Section Hero Banner -->
+      <section>
+        <!-- Container Div -->
+        <div class="md:w-10/12 mx-auto w-full px-2 md:px-4">
+          <!-- Hero Banner -->
+          <div
+            class="hero min-h-[60vh] md:min-h-[75vh] rounded-xl md:rounded-3xl"
+            style="background-image: url(media/banner.png)"
+          >
+            <div
+              class="hero-overlay bg-opacity-40 rounded-xl md:rounded-3xl"
+            ></div>
+            <div class="hero-content text-center text-neutral-content">
+              <div class="max-w-xl">
+                <h1
+                  class="mb-5 text-4xl md:text-6xl text-raleway font-extrabold text-white"
+                >
+                  End-to-End Travel with
+                  <span class="text-orange-500">bookme</span>
+                </h1>
+                <p class="mb-5 text-base md:text-lg font-normal text-white">
+                  Yes, you can run unit tests and view the results directly
+                  within the app. The integrated testing features allow for a
+                  streamlined.
+                </p>
+                <button
+                  class="btn bg-orange-500 border-orange-500 hover:bg-orange-400 text-xl text-raleway font-bold text-white hover:border-orange-500 mt-4"
+                >
+                  Buy Ticket
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Hero Cards Section -->
+      <section>
+        <!-- Container Div -->
+        <div class="md:w-10/12 mx-auto w-full px-2 md:px-4">
+          <!-- Hero Cards -->
+          <div
+            class="flex flex-col gap-6 md:gap-2 lg:justify-between justify-center md:flex-row max-w-xl md:max-w-6xl mx-auto md:-my-12 -my-6 px-10"
+          >
+            <!-- Card 1 -->
+            <div
+              class="flex py-8 md:py-5 px-10 md:px-2 rounded-2xl border-b-4 border-orange-500 gap-6 md:gap-2 lg:gap-6 bg-white lg:px-5"
+            >
+              <img src="media/icons/bus-stop.svg" alt="icon" />
+              <div class="flex flex-col gap-1">
+                <h3
+                  class="font-bold text-2xl text-black md:text-2xl lg:text-4xl"
+                >
+                  500k+
+                </h3>
+                <p class="text-lg font-normal md:text-base lg:text-lg">
+                  Registered users
+                </p>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="flex py-8 md:py-5 px-10 md:px-2 rounded-2xl border-b-4 border-orange-500 gap-6 md:gap-2 lg:gap-6 bg-white lg:px-5"
+            >
+              <img src="media/icons/bus-stop.svg" alt="icon" />
+              <div class="flex flex-col gap-1">
+                <h3
+                  class="font-bold text-2xl text-black md:text-2xl lg:text-4xl"
+                >
+                  500k+
+                </h3>
+                <p class="text-lg font-normal md:text-base lg:text-lg">
+                  Registered users
+                </p>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div
+              class="flex py-8 md:py-5 px-10 md:px-2 rounded-2xl border-b-4 border-orange-500 gap-6 md:gap-2 lg:gap-6 bg-white lg:px-5"
+            >
+              <img src="media/icons/bus-stop.svg" alt="icon" />
+              <div class="flex flex-col gap-1">
+                <h3
+                  class="font-bold text-2xl text-black md:text-2xl lg:text-4xl"
+                >
+                  500k+
+                </h3>
+                <p class="text-lg font-normal md:text-base lg:text-lg">
+                  Registered users
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
     <script src="js/script.js"></script>
   </body>
