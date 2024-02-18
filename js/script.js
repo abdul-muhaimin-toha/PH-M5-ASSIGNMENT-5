@@ -6,6 +6,7 @@ const totalElement = document.getElementById('total');
 const grandTotalElement = document.getElementById('grand-total');
 const couponFieldElement = document.getElementById('coupon-field');
 const couponBtnElement = document.getElementById('coupon-btn');
+const nextBtnElement = document.getElementById('next-btn');
 const seatElements = document.getElementsByClassName('seat');
 
 // Initial Data
@@ -13,6 +14,7 @@ let availableSeat = 40;
 let seatSelected = 0;
 let total = 0;
 let grandTotal = total;
+let isCouponUsed = false;
 
 // Initial Setup
 availableSeatElement.innerText = availableSeat;
@@ -20,6 +22,43 @@ seatSelectedElement.innerText = seatSelected;
 totalElement.innerText = total;
 grandTotalElement.innerText = grandTotal;
 
+// Utility Function
+function coupneBtnStyleAdd() {
+  couponBtnElement.classList.add(
+    'text-black',
+    'border',
+    'border-black',
+    'hover:border-black',
+    'hover:bg-grey-500',
+    'bg-grey-900',
+    'cursor-not-allowed'
+  );
+
+  couponBtnElement.classList.remove(
+    'bg-yellow-500',
+    'hover:bg-yellow-600',
+    'text-white'
+  );
+}
+function coupneBtnStyleReset() {
+  couponBtnElement.classList.remove(
+    'text-black',
+    'border',
+    'border-black',
+    'hover:border-black',
+    'hover:bg-grey-500',
+    'bg-grey-900',
+    'cursor-not-allowed'
+  );
+
+  couponBtnElement.classList.add(
+    'bg-yellow-500',
+    'hover:bg-yellow-600',
+    'text-white'
+  );
+}
+
+// But Seat Selection
 for (const seatElement of seatElements) {
   seatElement.addEventListener('click', function (event) {
     if (seatSelected < 4) {
@@ -37,17 +76,33 @@ for (const seatElement of seatElements) {
       grandTotal = total;
       totalElement.innerText = total;
       grandTotalElement.innerText = grandTotal;
+      isCouponUsed = false;
+      coupneBtnStyleReset();
     }
   });
 }
 
-couponBtnElement.addEventListener('click', function () {
+// Coupone Add
+couponBtnElement.addEventListener('click', function (event) {
   const providedCoupon = couponFieldElement.value
     .toLowerCase()
     .split(' ')
     .join('');
 
-  if (providedCoupon === 'new20') {
-    console.log('coupon added');
+  if (providedCoupon === 'new15' && !isCouponUsed) {
+    isCouponUsed = true;
+    grandTotal -= grandTotal * 0.2;
+    grandTotalElement.innerText = grandTotal;
+
+    coupneBtnStyleAdd();
   }
+
+  if (providedCoupon === 'couple20' && !isCouponUsed) {
+    isCouponUsed = true;
+    grandTotal -= grandTotal * 0.2;
+    grandTotalElement.innerText = grandTotal;
+
+    coupneBtnStyleAdd();
+  }
+  couponFieldElement.value = '';
 });
