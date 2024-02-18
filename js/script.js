@@ -10,6 +10,7 @@ const nextBtnElement = document.getElementById('next-btn');
 const nameInputElement = document.getElementById('name-field');
 const phoneInputElement = document.getElementById('phone-field');
 const emailInputElement = document.getElementById('email-field');
+const couponContainerElement = document.getElementById('coupon-container');
 const seatElements = document.getElementsByClassName('seat');
 
 // Initial Data
@@ -32,18 +33,17 @@ function initialSetup() {
   totalElement.innerText = total;
   grandTotalElement.innerText = grandTotal;
 
-  couponBtnElement.removeAttribute('disabled', '');
+  couponBtnElement.setAttribute('disabled', '');
+  couponContainerElement.classList.remove('hidden');
 }
 initialSetup();
 
 // Utility Function
 function bookedPhoneNameCheck() {
-  const userName = nameInputElement.value;
   const phoneNumber = phoneInputElement.value;
   const phoneNumberArr = phoneNumber.split('');
 
   if (
-    userName &&
     phoneNumber &&
     !isNaN(phoneNumber) &&
     typeof parseInt(phoneNumber) === 'number' &&
@@ -77,7 +77,6 @@ for (const seatElement of seatElements) {
       totalElement.innerText = total;
       grandTotalElement.innerText = grandTotal;
       isCouponUsed = false;
-      couponBtnElement.removeAttribute('disabled', '');
       bookedPhoneNameCheck();
       event.target.classList.add('cursor-not-allowed');
       event.target.classList.remove('cursor-pointer');
@@ -87,27 +86,23 @@ for (const seatElement of seatElements) {
 
 // Coupone Add
 couponBtnElement.addEventListener('click', function (event) {
-  const providedCoupon = couponFieldElement.value
-    .toLowerCase()
-    .split(' ')
-    .join('');
+  const providedCoupon = couponFieldElement.value;
 
-  if (providedCoupon === 'new15' && !isCouponUsed) {
+  if (providedCoupon === 'NEW15' && !isCouponUsed) {
     isCouponUsed = true;
     grandTotal -= grandTotal * 0.2;
     grandTotalElement.innerText = grandTotal;
-
-    couponBtnElement.setAttribute('disabled', '');
+    couponContainerElement.classList.add('hidden');
   }
 
-  if (providedCoupon === 'couple20' && !isCouponUsed) {
+  if (providedCoupon === 'Couple 20' && !isCouponUsed) {
     isCouponUsed = true;
     grandTotal -= grandTotal * 0.2;
     grandTotalElement.innerText = grandTotal;
-
-    couponBtnElement.setAttribute('disabled', '');
+    couponContainerElement.classList.add('hidden');
   }
   couponFieldElement.value = '';
+  couponBtnElement.setAttribute('disabled', '');
 });
 
 // Name Input Element
@@ -133,5 +128,13 @@ nextBtnElement.addEventListener('click', function () {
       'bg-gray-200'
     );
     nextBtnElement.setAttribute('disabled', '');
+  }
+});
+
+couponFieldElement.addEventListener('keyup', function () {
+  if (couponFieldElement.value && total > 0) {
+    couponBtnElement.removeAttribute('disabled', '');
+  } else {
+    couponBtnElement.setAttribute('disabled', '');
   }
 });
