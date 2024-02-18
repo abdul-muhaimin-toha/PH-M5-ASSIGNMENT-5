@@ -7,6 +7,8 @@ const grandTotalElement = document.getElementById('grand-total');
 const couponFieldElement = document.getElementById('coupon-field');
 const couponBtnElement = document.getElementById('coupon-btn');
 const nextBtnElement = document.getElementById('next-btn');
+const nameInputElement = document.getElementById('name-field');
+const phoneInputElement = document.getElementById('phone-field');
 const seatElements = document.getElementsByClassName('seat');
 
 // Initial Data
@@ -58,7 +60,7 @@ function coupneBtnStyleReset() {
   );
 }
 
-// But Seat Selection
+// Bus Seat Selection
 for (const seatElement of seatElements) {
   seatElement.addEventListener('click', function (event) {
     if (seatSelected < 4) {
@@ -78,6 +80,10 @@ for (const seatElement of seatElements) {
       grandTotalElement.innerText = grandTotal;
       isCouponUsed = false;
       coupneBtnStyleReset();
+      bookedPhoneNameCheck();
+      console.log(event.target.classList);
+      event.target.classList.add('cursor-not-allowed');
+      event.target.classList.remove('cursor-pointer');
     }
   });
 }
@@ -106,3 +112,30 @@ couponBtnElement.addEventListener('click', function (event) {
   }
   couponFieldElement.value = '';
 });
+
+nameInputElement.addEventListener('keyup', function (event) {
+  bookedPhoneNameCheck();
+});
+
+phoneInputElement.addEventListener('keyup', function (event) {
+  bookedPhoneNameCheck();
+});
+
+function bookedPhoneNameCheck() {
+  const userName = nameInputElement.value;
+  const phoneNumber = phoneInputElement.value;
+  const phoneNumberArr = phoneNumber.split('');
+
+  if (
+    userName &&
+    phoneNumber &&
+    !isNaN(phoneNumber) &&
+    typeof parseInt(phoneNumber) === 'number' &&
+    phoneNumberArr.length > 10 &&
+    total > 0
+  ) {
+    nextBtnElement.classList.remove('cursor-not-allowed');
+  } else {
+    nextBtnElement.classList.add('cursor-not-allowed');
+  }
+}
