@@ -65,7 +65,7 @@ for (const seatElement of seatElements) {
       seatSelected++;
       availableSeat--;
       event.target.classList.remove('bg-gray-200', 'hover:bg-yellow-500');
-      event.target.classList.add('bg-blue-500');
+      event.target.classList.add('bg-yellow-500');
       availableSeatElement.innerText = availableSeat;
       seatSelectedElement.innerText = seatSelected;
       const currentSeat = event.target.innerText;
@@ -80,6 +80,10 @@ for (const seatElement of seatElements) {
       bookedPhoneNameCheck();
       event.target.classList.add('cursor-not-allowed');
       event.target.classList.remove('cursor-pointer');
+      event.target.setAttribute('disabled', '');
+      if (seatSelected >= 4) {
+        couponBtnElement.removeAttribute('disabled', '');
+      }
     }
   });
 }
@@ -90,9 +94,13 @@ couponBtnElement.addEventListener('click', function (event) {
 
   if (providedCoupon === 'NEW15' && !isCouponUsed) {
     isCouponUsed = true;
-    grandTotal -= grandTotal * 0.2;
+    grandTotal -= grandTotal * 0.15;
     grandTotalElement.innerText = grandTotal;
     couponContainerElement.classList.add('hidden');
+    document.getElementById('discount-row').innerHTML = `<th>Discount</th>
+    <th></th>
+    <th>BDT ${total * 0.15}</th>
+    `;
   }
 
   if (providedCoupon === 'Couple 20' && !isCouponUsed) {
@@ -100,9 +108,16 @@ couponBtnElement.addEventListener('click', function (event) {
     grandTotal -= grandTotal * 0.2;
     grandTotalElement.innerText = grandTotal;
     couponContainerElement.classList.add('hidden');
+    document.getElementById('discount-row').innerHTML = `<th>Discount</th>
+    <th></th>
+    <th>BDT ${total * 0.2}</th>
+    `;
+  }
+  if (!(providedCoupon === 'Couple 20') && !(providedCoupon === 'NEW15')) {
+    alert('Provide Valid Coupon');
   }
   couponFieldElement.value = '';
-  couponBtnElement.setAttribute('disabled', '');
+  couponBtnElement.removeAttribute('disabled', '');
 });
 
 // Name Input Element
@@ -120,8 +135,13 @@ nextBtnElement.addEventListener('click', function () {
   phoneInputElement.value = '';
   emailInputElement.value = '';
   initialSetup();
+
+  seatDetailsElement.innerHTML = ``;
+  document.getElementById('discount-row').innerHTML = ``;
+
   for (const seatElement of seatElements) {
-    seatElement.classList.remove('cursor-not-allowed', 'bg-blue-500');
+    seatElement.removeAttribute('disabled', '');
+    seatElement.classList.remove('cursor-not-allowed', 'bg-yellow-500');
     seatElement.classList.add(
       'cursor-pointer',
       'hover:bg-yellow-500',
@@ -131,10 +151,10 @@ nextBtnElement.addEventListener('click', function () {
   }
 });
 
-couponFieldElement.addEventListener('keyup', function () {
-  if (couponFieldElement.value && total > 0) {
-    couponBtnElement.removeAttribute('disabled', '');
-  } else {
-    couponBtnElement.setAttribute('disabled', '');
-  }
-});
+// couponFieldElement.addEventListener('keyup', function () {
+//   if (couponFieldElement.value && total > 0) {
+//     couponBtnElement.removeAttribute('disabled', '');
+//   } else {
+//     couponBtnElement.setAttribute('disabled', '');
+//   }
+// });
