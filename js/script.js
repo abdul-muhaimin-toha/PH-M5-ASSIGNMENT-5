@@ -9,6 +9,7 @@ const couponBtnElement = document.getElementById('coupon-btn');
 const nextBtnElement = document.getElementById('next-btn');
 const nameInputElement = document.getElementById('name-field');
 const phoneInputElement = document.getElementById('phone-field');
+const emailInputElement = document.getElementById('email-field');
 const seatElements = document.getElementsByClassName('seat');
 
 // Initial Data
@@ -19,10 +20,19 @@ let grandTotal = total;
 let isCouponUsed = false;
 
 // Initial Setup
-availableSeatElement.innerText = availableSeat;
-seatSelectedElement.innerText = seatSelected;
-totalElement.innerText = total;
-grandTotalElement.innerText = grandTotal;
+function initialSetup() {
+  availableSeat = 40;
+  seatSelected = 0;
+  total = 0;
+  grandTotal = total;
+  isCouponUsed = false;
+
+  availableSeatElement.innerText = availableSeat;
+  seatSelectedElement.innerText = seatSelected;
+  totalElement.innerText = total;
+  grandTotalElement.innerText = grandTotal;
+}
+initialSetup();
 
 // Utility Function
 function coupneBtnStyleAdd() {
@@ -59,6 +69,26 @@ function coupneBtnStyleReset() {
     'text-white'
   );
 }
+function bookedPhoneNameCheck() {
+  const userName = nameInputElement.value;
+  const phoneNumber = phoneInputElement.value;
+  const phoneNumberArr = phoneNumber.split('');
+
+  if (
+    userName &&
+    phoneNumber &&
+    !isNaN(phoneNumber) &&
+    typeof parseInt(phoneNumber) === 'number' &&
+    phoneNumberArr.length > 10 &&
+    total > 0
+  ) {
+    nextBtnElement.classList.remove('cursor-not-allowed');
+    nextBtnElement.removeAttribute('disabled', '');
+  } else {
+    nextBtnElement.classList.add('cursor-not-allowed');
+    nextBtnElement.setAttribute('disabled', '');
+  }
+}
 
 // Bus Seat Selection
 for (const seatElement of seatElements) {
@@ -81,7 +111,6 @@ for (const seatElement of seatElements) {
       isCouponUsed = false;
       coupneBtnStyleReset();
       bookedPhoneNameCheck();
-      console.log(event.target.classList);
       event.target.classList.add('cursor-not-allowed');
       event.target.classList.remove('cursor-pointer');
     }
@@ -113,29 +142,28 @@ couponBtnElement.addEventListener('click', function (event) {
   couponFieldElement.value = '';
 });
 
+// Name Input Element
 nameInputElement.addEventListener('keyup', function (event) {
   bookedPhoneNameCheck();
 });
 
+// Phone Input Element
 phoneInputElement.addEventListener('keyup', function (event) {
   bookedPhoneNameCheck();
 });
 
-function bookedPhoneNameCheck() {
-  const userName = nameInputElement.value;
-  const phoneNumber = phoneInputElement.value;
-  const phoneNumberArr = phoneNumber.split('');
-
-  if (
-    userName &&
-    phoneNumber &&
-    !isNaN(phoneNumber) &&
-    typeof parseInt(phoneNumber) === 'number' &&
-    phoneNumberArr.length > 10 &&
-    total > 0
-  ) {
-    nextBtnElement.classList.remove('cursor-not-allowed');
-  } else {
-    nextBtnElement.classList.add('cursor-not-allowed');
+nextBtnElement.addEventListener('click', function () {
+  nameInputElement.value = '';
+  phoneInputElement.value = '';
+  emailInputElement.value = '';
+  initialSetup();
+  for (const seatElement of seatElements) {
+    seatElement.classList.remove('cursor-not-allowed', 'bg-blue-500');
+    seatElement.classList.add(
+      'cursor-pointer',
+      'hover:bg-yellow-500',
+      'bg-gray-200'
+    );
+    nextBtnElement.setAttribute('disabled', '');
   }
-}
+});

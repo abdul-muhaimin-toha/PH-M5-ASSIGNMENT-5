@@ -649,18 +649,21 @@
                 <h3>Email ID</h3>
                 <label class="input input-bordered flex items-center gap-2">
                   <input
+                    id="email-field"
                     type="email"
                     class="grow"
                     placeholder="Email Address"
                   />
                 </label>
                 <div>
-                  <button
+                  <label
+                    disabled
+                    for="my_modal_7"
                     id="next-btn"
-                    class="btn w-full mt-10 bg-yellow-500 hover:bg-yellow-600 text-white cursor-not-allowed"
+                    class="btn w-full mt-10 bg-yellow-500 hover:bg-yellow-600 text-white"
+                    >Next</label
                   >
-                    Next
-                  </button>
+
                   <div class="flex justify-center gap-10 mt-4 text-blue-500">
                     <div>
                       <a href="#">Tearms & conditions</a>
@@ -712,7 +715,17 @@
         </div>
       </div>
     </footer>
-
+    <!-- Modal Section -->
+    <section>
+      <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+      <div class="modal" role="dialog">
+        <div class="modal-box">
+          <h3 class="text-2xl text-yellow-500 font-bold">Congratulation</h3>
+          <p class="py-4">You successfully ordered your ticket.</p>
+        </div>
+        <label class="modal-backdrop" for="my_modal_7">Close</label>
+      </div>
+    </section>
     <script src="js/script.js"></script>
   </body>
 </html>
