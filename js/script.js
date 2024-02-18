@@ -31,44 +31,12 @@ function initialSetup() {
   seatSelectedElement.innerText = seatSelected;
   totalElement.innerText = total;
   grandTotalElement.innerText = grandTotal;
+
+  couponBtnElement.removeAttribute('disabled', '');
 }
 initialSetup();
 
 // Utility Function
-function coupneBtnStyleAdd() {
-  couponBtnElement.classList.add(
-    'text-black',
-    'border',
-    'border-black',
-    'hover:border-black',
-    'hover:bg-grey-500',
-    'bg-grey-900',
-    'cursor-not-allowed'
-  );
-
-  couponBtnElement.classList.remove(
-    'bg-yellow-500',
-    'hover:bg-yellow-600',
-    'text-white'
-  );
-}
-function coupneBtnStyleReset() {
-  couponBtnElement.classList.remove(
-    'text-black',
-    'border',
-    'border-black',
-    'hover:border-black',
-    'hover:bg-grey-500',
-    'bg-grey-900',
-    'cursor-not-allowed'
-  );
-
-  couponBtnElement.classList.add(
-    'bg-yellow-500',
-    'hover:bg-yellow-600',
-    'text-white'
-  );
-}
 function bookedPhoneNameCheck() {
   const userName = nameInputElement.value;
   const phoneNumber = phoneInputElement.value;
@@ -109,7 +77,7 @@ for (const seatElement of seatElements) {
       totalElement.innerText = total;
       grandTotalElement.innerText = grandTotal;
       isCouponUsed = false;
-      coupneBtnStyleReset();
+      couponBtnElement.removeAttribute('disabled', '');
       bookedPhoneNameCheck();
       event.target.classList.add('cursor-not-allowed');
       event.target.classList.remove('cursor-pointer');
@@ -129,7 +97,7 @@ couponBtnElement.addEventListener('click', function (event) {
     grandTotal -= grandTotal * 0.2;
     grandTotalElement.innerText = grandTotal;
 
-    coupneBtnStyleAdd();
+    couponBtnElement.setAttribute('disabled', '');
   }
 
   if (providedCoupon === 'couple20' && !isCouponUsed) {
@@ -137,7 +105,7 @@ couponBtnElement.addEventListener('click', function (event) {
     grandTotal -= grandTotal * 0.2;
     grandTotalElement.innerText = grandTotal;
 
-    coupneBtnStyleAdd();
+    couponBtnElement.setAttribute('disabled', '');
   }
   couponFieldElement.value = '';
 });
