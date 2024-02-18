@@ -72,12 +72,13 @@
               </ul>
             </div>
             <div class="navbar-end">
-              <button
+              <a
+                href="#section-booking"
                 class="btn text-xl font-bold space-x-1 flex items-center text-orange-500 bg-orange-50 border border-orange-200 hover:bg-orange-200"
               >
                 <span>Bus</span>
                 <img src="media/icons/bus.svg" alt="icon" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -107,16 +108,18 @@
                   within the app. The integrated testing features allow for a
                   streamlined.
                 </p>
-                <button
+                <a
+                  href="#section-booking"
                   class="btn bg-orange-500 border-orange-500 hover:bg-orange-400 text-xl text-raleway font-bold text-white hover:border-orange-500 mt-4"
                 >
                   Buy Ticket
-                </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <!-- Section Hero Cards -->
       <section>
         <!-- Container Div -->
         <div class="md:w-10/12 mx-auto w-full px-2 md:px-4">
@@ -128,7 +131,7 @@
             <div
               class="flex py-8 md:py-5 px-10 md:px-2 rounded-2xl border-b-4 border-orange-500 gap-6 md:gap-2 lg:gap-6 bg-white lg:px-5"
             >
-              <img src="media/icons/bus-stop.svg" alt="icon" />
+              <img src="media/icons/users-group.svg" alt="icon" />
               <div class="flex flex-col gap-1">
                 <h3
                   class="font-bold text-2xl text-black md:text-2xl lg:text-4xl"
@@ -144,15 +147,15 @@
             <div
               class="flex py-8 md:py-5 px-10 md:px-2 rounded-2xl border-b-4 border-orange-500 gap-6 md:gap-2 lg:gap-6 bg-white lg:px-5"
             >
-              <img src="media/icons/bus-stop.svg" alt="icon" />
+              <img src="media/icons/ticket.svg" alt="icon" />
               <div class="flex flex-col gap-1">
                 <h3
                   class="font-bold text-2xl text-black md:text-2xl lg:text-4xl"
                 >
-                  500k+
+                  1.7 lacks
                 </h3>
                 <p class="text-lg font-normal md:text-base lg:text-lg">
-                  Registered users
+                  Tickets sold
                 </p>
               </div>
             </div>
@@ -165,10 +168,10 @@
                 <h3
                   class="font-bold text-2xl text-black md:text-2xl lg:text-4xl"
                 >
-                  500k+
+                  80K+
                 </h3>
                 <p class="text-lg font-normal md:text-base lg:text-lg">
-                  Registered users
+                  Rental partners
                 </p>
               </div>
             </div>
@@ -202,7 +205,7 @@
               </div>
               <img src="media/cupon-devider.png" alt="" class="h-full" />
               <div class="flex flex-col gap-1 text-left">
-                <h5 class="text-raleway text-3xl font-bold">NEW 15</h5>
+                <h5 class="text-raleway text-3xl font-bold">NEW15</h5>
                 <p class="text-raleway font-bold">Coupon Code</p>
               </div>
             </div>
@@ -233,6 +236,7 @@
       </section>
       <!-- Ticket Booking Section -->
       <section
+        id="section-booking"
         class="bg-slate-100 rounded-t-[100px] border-t-orange-500 border-t-4 mt-32"
       >
         <!-- Container Div -->
@@ -270,7 +274,7 @@
                       class="p-2 lg:p-4 rounded-lg text-sm lg:text-xl font-bold space-x-1 flex items-center text-orange-500 bg-orange-50 border border-orange-200"
                     >
                       <img src="media/icons/armchair.svg" alt="icon" />
-                      <span>40</span>
+                      <span id="seat-available">0</span>
                       <span>Seats Left</span>
                     </div>
                   </div>
@@ -352,133 +356,213 @@
                 class="grid grid-cols-5 gap-x-8 gap-y-10 items-center justify-center"
               >
                 <div>A</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   A1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   A2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   A3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   A4
                 </div>
                 <div>B</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   B1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   B2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   B3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   B4
                 </div>
                 <div>C</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   C1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   C2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   C3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   C4
                 </div>
                 <div>D</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   D1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   D2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   D3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   D4
                 </div>
                 <div>E</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   E1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   E2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   E3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   E4
                 </div>
                 <div>F</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   F1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   F2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   F3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   F4
                 </div>
                 <div>G</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   G1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   G2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   G3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   G4
                 </div>
                 <div>H</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   H1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   H2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   H3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   H4
                 </div>
                 <div>I</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   I1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   I2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   I3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   I4
                 </div>
                 <div>J</div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   J1
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   J2
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   J3
                 </div>
-                <div class="kbd bg-gray-200 cursor-pointer hover:bg-yellow-500">
+                <div
+                  class="seat kbd bg-gray-200 cursor-pointer hover:bg-yellow-500"
+                >
                   J4
                 </div>
               </div>
@@ -500,49 +584,42 @@
                         <th>
                           Seat
                           <span
-                            class="bg-orange-300 text-white px-4 py-1 rounded ml-2"
-                            >2</span
+                            id="total-seat-selected"
+                            class="bg-blue-500 text-white px-4 py-1 rounded ml-2"
+                            >0</span
                           >
                         </th>
                         <th>Class</th>
                         <th>Price</th>
                       </tr>
                     </thead>
-                    <tbody class="border-b-2 border-orange-100 pb-2">
-                      <!-- row 1 -->
-                      <tr>
-                        <td>C2</td>
-                        <td>Economy</td>
-                        <td>550</td>
-                      </tr>
-                      <!-- row 1 -->
-                      <tr>
-                        <td>C2</td>
-                        <td>Economy</td>
-                        <td>550</td>
-                      </tr>
-                    </tbody>
+                    <tbody
+                      id="seat-details"
+                      class="border-b-2 border-orange-100 pb-2"
+                    ></tbody>
                     <tbody class="text-base text-black">
                       <tr>
                         <th>Total</th>
                         <th></th>
-                        <th>BDT 1100</th>
+                        <th>BDT <span id="total">0</span></th>
                       </tr>
                       <tr>
                         <th>Grand Total</th>
                         <th></th>
-                        <th>BDT 1100</th>
+                        <th>BDT <span id="grand-total">0</span></th>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <div class="bg-white flex justify-between p-2 m-2 rounded-lg">
                   <input
+                    id="coupon-field"
                     type="text"
                     placeholder="Apply Your coupon"
                     class="p-3 border-none outline-none"
                   />
                   <button
+                    id="coupon-btn"
                     class="btn bg-yellow-500 text-white hover:bg-yellow-600"
                   >
                     Apply
@@ -551,7 +628,7 @@
               </div>
               <!-- Form -->
               <div class="mt-10 space-y-2">
-                <h3>Your name</h3>
+                <h3>Your name*</h3>
                 <label class="input input-bordered flex items-center gap-2">
                   <input type="text" class="grow" placeholder="Your Name" />
                 </label>
